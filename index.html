@@ -1,128 +1,95 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>PurpleTanuki – Turn Life Into a Game</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+  body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: radial-gradient(circle at top, #7b4bff 0%, #2b0b4a 55%, #120020 100%);
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
 
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #7b4bff 0%, #2b0b4a 55%, #120020 100%);
-      color: #ffffff;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+  .page {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 32px 24px;
+    text-align: center;
+  }
 
+  .logo-text {
+    margin-bottom: 24px;
+  }
+
+  .logo-text h1 {
+    font-size: clamp(2.4rem, 4vw, 3.4rem);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .logo-text h2 {
+    font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+    font-weight: 400;
+    opacity: 0.9;
+    margin-top: 6px;
+  }
+
+  /* BIGGER, RESPONSIVE VIDEO */
+  .video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1400px; /* increased from 960px */
+    margin: 32px auto 0;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 28px 70px rgba(0, 0, 0, 0.55);
+    background: #000;
+  }
+
+  .video-wrapper::before {
+    content: "";
+    display: block;
+    padding-top: 56.25%; /* 16:9 aspect ratio */
+  }
+
+  .video-wrapper iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .tagline {
+    margin-top: 20px;
+    font-size: 1rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.85;
+  }
+
+  footer {
+    text-align: center;
+    padding: 12px 16px 18px;
+    font-size: 0.8rem;
+    opacity: 0.7;
+  }
+
+  @media (max-width: 600px) {
     .page {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-      text-align: center;
-    }
-
-    .logo-text {
-      margin-bottom: 16px;
-    }
-
-    .logo-text h1 {
-      font-size: clamp(2.2rem, 4vw, 3rem);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .logo-text h2 {
-      font-size: clamp(1.1rem, 2.2vw, 1.4rem);
-      font-weight: 400;
-      opacity: 0.9;
-      margin-top: 6px;
+      padding: 16px;
     }
 
     .video-wrapper {
-      position: relative;
-      width: 100%;
-      max-width: 960px;
-      margin: 24px auto 0;
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
-      background: #000;
+      border-radius: 14px;
+      margin-top: 20px;
     }
-
-    .video-wrapper::before {
-      content: "";
-      display: block;
-      padding-top: 56.25%; /* 16:9 aspect ratio */
-    }
-
-    .video-wrapper iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-
-    .tagline {
-      margin-top: 18px;
-      font-size: 0.95rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      opacity: 0.85;
-    }
-
-    footer {
-      text-align: center;
-      padding: 12px 16px 18px;
-      font-size: 0.8rem;
-      opacity: 0.7;
-    }
-
-    @media (max-width: 600px) {
-      .page {
-        padding: 16px;
-      }
-    }
-  </style>
-</head>
-<body>
-  <main class="page">
-    <header class="logo-text">
-      <h1>PurpleTanuki</h1>
-      <h2>Turn Life Into a Game</h2>
-    </header>
-
-    <section class="video-section">
-      <div class="video-wrapper">
-        <!-- Front-and-center hero video -->
-        <iframe
-          src="https://www.youtube.com/embed/83wHqWLvE2c"
-          title="PurpleTanuki – Hero Video"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-        ></iframe>
-      </div>
-      <p class="tagline">COMING SOON!.</p>
-    </section>
-  </main>
-
-  <footer>
-    © <span id="year"></span> PurpleTanuki. All rights reserved.
-  </footer>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
-
+  }
+</style>
