@@ -17,25 +17,24 @@
       color: #ffffff;
       min-height: 100vh;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
     }
 
     main {
       width: 100%;
-      max-width: 1400px; /* slightly smaller */
-      margin: 0 auto;
-      padding: 16px;
+      max-width: 1100px; /* tighter professional width */
+      padding: 30px 20px 40px;
     }
 
-    /* HERO (slightly reduced height feel) */
+    /* HERO - LESS WIDESCREEN FEEL */
     .hero-video {
       width: 100%;
-      max-height: 60vh; /* prevents it from taking whole screen */
-      border-radius: 20px;
+      max-width: 900px; /* constrain width */
+      margin: 0 auto 30px;
+      border-radius: 18px;
       overflow: hidden;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
       background: #000;
-      margin-bottom: 25px; /* reduced spacing */
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.5);
     }
 
     .hero-video iframe {
@@ -45,29 +44,36 @@
       display: block;
     }
 
-    /* NETFLIX ROW */
+    /* VIDEO ROW */
     .video-row {
       display: flex;
-      gap: 16px; /* slightly tighter */
+      gap: 18px;
       overflow-x: auto;
+      padding-bottom: 8px;
       scroll-snap-type: x mandatory;
-      padding-bottom: 6px;
+    }
+
+    .video-row::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .video-row::-webkit-scrollbar-thumb {
+      background: #444;
+      border-radius: 3px;
     }
 
     .video-card {
-      flex: 0 0 280px; /* slightly smaller cards */
-      scroll-snap-align: start;
+      flex: 0 0 260px;
       border-radius: 12px;
       overflow: hidden;
       background: #000;
+      scroll-snap-align: start;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      transition: transform 0.25s ease;
     }
 
     .video-card:hover {
       transform: scale(1.05);
-      box-shadow: 0 16px 35px rgba(0, 0, 0, 0.6);
-      z-index: 5;
     }
 
     .video-card iframe {
@@ -79,17 +85,21 @@
 
     footer {
       text-align: center;
-      padding: 16px;
-      font-size: 0.8rem;
-      opacity: 0.7;
-      margin-top: auto;
+      padding: 30px 0 10px;
+      font-size: 0.75rem;
+      opacity: 0.6;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
+      main {
+        padding: 20px 15px;
+      }
+
       .video-card {
-        flex: 0 0 240px;
+        flex: 0 0 220px;
       }
     }
+
   </style>
 </head>
 
@@ -97,7 +107,7 @@
 
   <main>
 
-    <!-- HERO VIDEO (Now 7cXlQnmAsJE) -->
+    <!-- HERO VIDEO -->
     <div class="hero-video">
       <iframe
         src="https://www.youtube.com/embed/7cXlQnmAsJE?rel=0"
@@ -106,37 +116,28 @@
       </iframe>
     </div>
 
-    <!-- NETFLIX-STYLE ROW -->
+    <!-- NETFLIX STYLE ROW -->
     <div class="video-row">
 
       <div class="video-card">
-        <iframe
-          src="https://www.youtube.com/embed/83wHqWLvE2c?rel=0"
-          allowfullscreen>
-        </iframe>
+        <iframe src="https://www.youtube.com/embed/83wHqWLvE2c?rel=0" allowfullscreen></iframe>
       </div>
 
       <div class="video-card">
-        <iframe
-          src="https://www.youtube.com/embed/ekgsrJyaWxU?rel=0"
-          allowfullscreen>
-        </iframe>
+        <iframe src="https://www.youtube.com/embed/ekgsrJyaWxU?rel=0" allowfullscreen></iframe>
       </div>
 
       <div class="video-card">
-        <iframe
-          src="https://www.youtube.com/embed/gkvL903pxj8?rel=0"
-          allowfullscreen>
-        </iframe>
+        <iframe src="https://www.youtube.com/embed/gkvL903pxj8?rel=0" allowfullscreen></iframe>
       </div>
 
     </div>
 
-  </main>
+    <footer>
+      © <span id="year"></span> PurpleTanuki. All rights reserved.
+    </footer>
 
-  <footer>
-    © <span id="year"></span> PurpleTanuki. All rights reserved.
-  </footer>
+  </main>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
